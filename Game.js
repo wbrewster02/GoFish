@@ -63,7 +63,7 @@ class Deck {
     }
 }
 const dealer = new Deck();
-dealer.shuffleDeck();
+dealer.deck.shuffleDeck();
 // console.log(dealer)
 
 //below is used to randomly select index from array (Deck) and add to hand1/hand2
@@ -81,13 +81,15 @@ dealer.shuffleDeck();
 const hand1 = [];
 const hand2 = [];
 const tmp = [];
-while (hand1.length < 7) {
+function deal() {
+    while (hand1.length < 7) {
     tmp.push(dealer.deck.splice(Math.floor(Math.random() * dealer.deck.length - 1), 1)[0]);
     hand1.push(tmp.pop());
-}
+};
 while (hand2.length < 7) {
     tmp.push(dealer.deck.splice(Math.floor(Math.random() * dealer.deck.length - 1), 1)[0]);
     hand2.push(tmp.pop());
+}
 }
 
 // // Obtain the img element, and assign it to the image variable
@@ -106,7 +108,7 @@ while (hand2.length < 7) {
 //   }
 // })
 const btn = document.getElementById("btn")
-btn.addEventListener("click", dealer.shuffleDeck())
+btn.addEventListener("click", dealer.deck.shuffleDeck())
 
 
 // const drawPile = []
