@@ -6,35 +6,52 @@ main {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
+#nav1 {
+    background-color: aliceblue;
+    margin-bottom: 20px;
+}
+
+#nav2 {
+    margin: 10px;
+}
+
+nav {
+    text-align: center;
+}
+
+nav > * {
+    display: inline-block;
+}
 
 button {
     height: 60px;
     width: 8.57%;
-    margin-left: 46%;
-    
 }
 
-#dealer {
-    height: 100px;
-    width: 100px;
-    background-color: azure;
-    /* margin-top: 100px; */
-    margin-left: 46%;
+.handContainer {
     text-align: center;
+    /* margin-bottom: 15px; */
 }
-#hand1 {
-    height: 100px;
+
+.hand {
+    height: 30px;
     width: 100px;
-    background-color: cadetblue;
-    /* margin-top: 50px; */
-    margin-left: 20%;
     text-align: center;
+    display: inline-block;
 }
+
 #hand2 {
-    height: 100px;
-    width: 100px;
     background-color: aliceblue;
-    /* margin-top: 50px; */
-    margin-left: 75%;
-    text-align: center;
 }
+
+#hand1 {
+    background-color: cadetblue;
+}
+
+.handContainer > .cards > img {
+    width: 50px;
+    margin: 3px;
+}
+/* #drawpile {
+    
+} */

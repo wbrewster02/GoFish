@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="Game.js"></script>
     <link href="styles.css" rel="stylesheet">
     <title>Go Fish!</title>
 </head>
@@ -13,13 +12,30 @@
         <h1>Go Fish!</h1>
         <p>Test your luck! Face off against your opponent and try to secure the most points. Each set of four cards with the same value counts as 1 point, get 7 points to win!</p>
     </main>
-    <nav>
+    <nav id="nav1">
         <button id="btn">New Game</button>
+        <select id="request"></select>
+        <button id="ask">Ask</button>
     </nav>
-    <div id="dealer">dealer</div>
-    <div id="hand1" class="yourHand">hand1</div>
-    <div id="hand2" class="opponentHand">hand2</div>
-    <!-- <div id="drawPile" class="draw">draw</div> -->
+    <div class="handContainer hd1">
+        <div class="score myScore">
+            My score:
+            <span>0</span>
+        </div>
+        <div class="cards"></div>
+    </div>
+    <nav id="nav2">
+        <button id="drawPile" class="draw" disabled>Draw</div>
+    </nav>
+    <div class="handContainer hd2">
+        <div class="score opponentScore">
+            Opponent score: 
+            <span>0</span>
+        </div>
+        <div class="cards"></div>
+    </div>
+
+    <script src="Game.js"></script>
 </body>
 </html>
 <!-- make a link to ruleset of gofish -->
