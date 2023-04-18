@@ -1,13 +1,14 @@
 main {
     height: 100px;
     width: 100%;
-    background-color: aliceblue;
+    background-color: #A0D2EB;
     text-align: center;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 #nav1 {
-    background-color: aliceblue;
+    background-color: #A0D2EB;
+    height: 70px;
     margin-bottom: 20px;
 }
 
@@ -25,12 +26,11 @@ nav > * {
 
 button {
     height: 60px;
-    width: 8.57%;
+    width: 100px;
 }
 
 .handContainer {
     text-align: center;
-    /* margin-bottom: 15px; */
 }
 
 .hand {
@@ -52,6 +52,13 @@ button {
     width: 50px;
     margin: 3px;
 }
-/* #drawpile {
-    
-} */
+body {
+    background-color: #494D5F;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: white;
+    -webkit-text-stroke: .1px lightslategray;
+}
+
+#btnAll {
+    background-color: #E5EAF5;
+}

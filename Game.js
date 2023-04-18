@@ -1,13 +1,3 @@
-// Go fish
-// deal 7 cards to yourself and computer
-// have a deck of 38 cards left
-//do you have any <insert suit>? --> respond 'yes' or 'No, Go Fish'
-//add card to hand, add card to Computer hand
-//combine 4 of same value
-//most 4 of same value at end wins (7)
-//keep track of score
-//when draw pile, hand1 and hand2 = 0; game end / and either player has 7 points
-
 
 class Card {
     constructor(suit, values) {
@@ -102,7 +92,7 @@ function deal() {
         image.setAttribute('value', card.values)
         image.setAttribute('suit', card.suit)
         otherHand.appendChild(image)
-        check4Set(card.values, otherHand)
+        // check4Set(card.values, otherHand)
     }
 }
 
@@ -123,8 +113,9 @@ ask.addEventListener("click", () => {
             let fileName = `${value.toLowerCase()}_of_${suit.toLowerCase()}.png`
             card.src = "assets/" + fileName
             addToHand(myHand, card)
-            setTimeout(player2Turn, 1000)
+            
         })
+        setTimeout(player2Turn, 1000)
     } else {
         alert("Go Fish!")
         drawBtn.removeAttribute('disabled')
@@ -139,14 +130,22 @@ function player2Turn() {
     let value = player2card.getAttribute("value")
     alert(`Do you have any ${value}s?`)
     let cards = myHand.querySelectorAll(`[value="${value}"]`)
+    console.log(cards)
     if (cards.length) {
         cards.forEach(card => {
             card.src = "assets/cardBack.png"
             otherHand.appendChild(card)
+            check4Set(value, otherHand)
         })
+        request.removeChild(request.querySelector(`[value="${value}"]`))
     } else {
         alert("Go Fish!")
         drawCard(otherHand)
+        // hand2.forEach((card) => {
+        //     console.log(card)
+        //     check4Set(card.values, hand2)
+        //     })
+        
     }
 
 }
@@ -172,6 +171,13 @@ function drawCard(hand) {
     image.setAttribute('suit', card.suit)
     
     addToHand(hand, image)
+
+    //test
+    if (hand == myHand && !request.querySelector(`[value="${card.values}"]`)) {
+    let option = document.createElement('option')
+    option.value = card.values
+    option.innerHTML = card.values
+    request.appendChild(option)}
 }
 
 function addToHand(hand, image) {
@@ -184,16 +190,48 @@ function addToHand(hand, image) {
     }
 
     check4Set(value, hand)
+    console.log(hand)
+    // hand.forEach((card) => {
+    //     check4Set(card.getAttribute('value'), hand)
+    //   })
 }
 
 function check4Set(value, hand) {
-    let cards = hand.querySelectorAll(`img[value="${value}"]`)
-    if (cards.length == 4) {
-        cards.forEach(card => card.remove())
+    console.log(hand)
+    // Array.from(hand.children).forEach((card) => {
+    //     console.log(card);
+    //     })
+    const cards = Array.from(hand.children)
+    let temp = [];
+    let matches = 0;
+    for (let j = 0; j < cards.length; j++) {
+        console.log("Value we're targeting: " + value);
+        console.log("Value of card in hand we're checking: " + cards[j].getAttribute("value"));
+        if (value == cards[j].getAttribute("value")) {
+            matches = matches + 1;
+            temp.push(cards[j])
+        }
+    }            
+    // const cards = hand.(card => card.values == value);
+    // let cards = hand.forEach((card) => {
+    //     (card.values , hand)
+    //   })
+
+
+    if (matches == 4) {
+        console.log(cards)
+        console.log(hand)
+        for (let i = 0; i < 4; i++) {
+            hand.removeChild(hand.querySelector(`[value="${value}"]`))
+        }
+
         let scoreBoard = hand.previousElementSibling.querySelector("span")
         let score = parseInt(scoreBoard.innerHTML)
         let newScore = score + 1;
         scoreBoard.innerHTML = newScore
+
+        //test 2 
+        {request.removeChild(request.querySelector(`[value="${value}"]`))}
 
         if (newScore == 7) {
             if (hand == myHand) {
