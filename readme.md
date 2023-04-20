@@ -13,6 +13,12 @@ https://stackoverflow.com/questions/45952551/javascript-trying-to-randomly-move-
 //   team2.push(tmp.pop());
 // }
 
+//some code used line 2-54 was used by Nick Altunia in an example
+// line 66-96 from https://stackoverflow.com/questions/45952551/javascript-trying-to-randomly-move-items-from-one-array-to-another
+card backs https://i.ibb.co/M5xJxM5/card-deck-1.png
+card fronts https://opengameart.org/content/playing-cards-vector-png
+Received help from Gerald Wilingham 
+Received review/help from Tommy Aker
 
 // Go fish
 // deal 7 cards to yourself and computer
