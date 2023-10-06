@@ -1,0 +1,40 @@
+@import 'variables';
+
+$button-hue-change-color: button-hue-change($primary-color, 90deg);
+
+$button-border-radius: 5px;
+
+
+%btn {
+  display: inline-block;
+  border-radius: 20px; // Adjusted to match the original border-radius
+  padding: $button-padding;
+  margin: 0 2px 2px 0;
+  border: 0.1em solid #000000;
+  box-sizing: border-box;
+  text-decoration: none;
+  text-align: center;
+  transition: all 0.15s;
+
+
+  &:hover {
+    transform: scale(1.4);
+}
+
+.btn-primary {
+  @extend %btn;
+  color: $secondary-color; // Set text color to black
+
+}
+
+
+
+@media all and (max-width: 30em) {
+  // Adjusted styles for smaller screens
+  a.button {
+    display: block;
+    margin: 0.4em auto;
+    text-align: center;
+  }
+}
+}

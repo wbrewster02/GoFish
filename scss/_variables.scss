@@ -1,0 +1,51 @@
+// _variables.scss
+
+// Colors
+$primary-color: #ffffff;
+$secondary-color: #000000;
+$background-color: #000000;
+$link-color: $primary-color;
+$water-color: #0004f9;
+$earth-color: #33cc33;
+$fire-color: #ffcc00;
+
+// Fonts
+$base-font-family: 'Helvetica Neue', sans-serif;
+$heading-font-family: 'Arial', sans-serif;
+$button-family: 'Verdana', 'Geneva', 'Tahoma', 'sans-serif';
+
+// Sizes
+$base-font-size: 16px;
+$heading-1-size: 2rem;
+$heading-2-size: 1.5rem;
+$heading-3-size: 1.25rem;
+$button-padding: 10px 20px;
+
+
+
+// SCSS function for complementary color
+@function text-color-picker($color) {
+    @if(lightness($color) > 50) {
+      @return black;
+    } @else {
+      @return white;
+    }
+  }
+
+@function invert($color, $amount: 100%) {
+    $inverse: change-color($color, $hue: hue($color) + 180);
+        @return mix($inverse, $color, $amount);
+  }
+  
+  $secondary-color: #036;
+  .header {
+    background-color: invert($secondary-color, 40%);
+  }
+
+
+
+// SCSS Mixin
+@mixin set-bg($color) {
+  background-color: $color;
+  color: text-color-picker($color);
+}
